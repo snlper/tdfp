@@ -1,7 +1,13 @@
 #!/bin/bash
 
-INSTALL_LOG="install.log"
+INSTALL_LOG="tdfp_install.log"
 exec &> >(tee -a "$INSTALL_LOG")
+
+# проверка наличия необходимого ПО
+if [ -n -x /usr/bin/wget ]; then
+	echo "Install wget"
+	exit 0
+fi
 
 #apt install libcurl4-gnutils-dev
 WORKING_FOLDER=$PWD
