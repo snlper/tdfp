@@ -4,7 +4,7 @@ INSTALL_LOG="tdfp_install.log"
 exec &> >(tee -a "$INSTALL_LOG")
 
 # проверка наличия необходимого ПО
-if [ -n -x /usr/bin/wget ]; then
+if [ ! -x /usr/bin/wget ]; then
 	echo "Install wget"
 	exit 0
 fi
